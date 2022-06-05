@@ -46,7 +46,10 @@ class AddPosts extends Migration
             'created_at' => [
                 'null' => true,
                 'type' => 'DATETIME'
-
+            ],
+            'edited_at' => [
+              'null' => true,
+              'type' => 'DATETIME'
             ],
             'deleted_at'=> [
                 'null' => true,

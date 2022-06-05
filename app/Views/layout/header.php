@@ -9,6 +9,9 @@
     <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>/css/styles.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
 

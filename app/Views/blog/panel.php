@@ -54,7 +54,7 @@ echo view('layout/flashdata');
                                     </a>
 
 
-                                    <a class="btn btn-danger" href="/panel/post/edit/<?=$post->id?>">
+                                    <a class="btn btn-danger" href="/panel/post/<?=$post->id?>">
                                         <span class="icon">
                                             <i class="fas fa-pen-to-square"></i>
                                         </span>

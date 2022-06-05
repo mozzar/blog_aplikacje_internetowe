@@ -48,7 +48,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->group('panel', function($routes){
         $routes->get('/', 'PanelController::index');
         $routes->match(['post', 'get'], 'post', 'PanelController::post');
-        $routes->match(['delete', 'post'], 'post/(:num)', 'PanelController::delete_update/$1');
+        $routes->match(['delete', 'post', 'get'], 'post/(:num)', 'PanelController::delete_update/$1');
 
 
 

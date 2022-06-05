@@ -2,6 +2,28 @@
 echo view('layout/header');
 echo view('layout/navbar');
 echo view('layout/flashdata');
+
+
+$title = $post->title;
+$description = trim($post->description);
+$slug = $post->slug;
+$content = $post->content;
+$edited_at = $post->edited_at;
+if(!empty(old('title'))){
+    $title = old('title');
+}
+
+if(!empty(old('description'))){
+    $description = trim(old('description'));
+}
+
+if(!empty(old('slug'))){
+    $slug = old('slug');
+}
+if(!empty(old('content'))){
+    $content = old('content');
+}
+
 ?>
 
 
@@ -10,17 +32,17 @@ echo view('layout/flashdata');
     <div class="column is-two-thirds">
 
 
-        <div class="tabs is-centered">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
-                <li><a href="/panel/">Lista postów</a></li>
-                <li class="is-active"><a href="/panel/post/">Dodaj post</a></li>
-                <li><a>Kategorie</a></li>
-                <li><a>Dodaj kategorie</a></li>
+                <li><a href="/panel">Panel</a></li>
+                <li class="is-active"><a href="<?=current_url();?>" aria-current="page">Edycja posta</a></li>
             </ul>
-        </div>
+        </nav>
 
         <div class="content">
-        <h1 class="is-centered">Dodaj post</h1>
+            <h1 class="is-centered">Edytuj post</h1>
+            <small>Ostatnia edycja: <?=empty($edited_at)? "Brak" : $edited_at ?></small>
+
         </div>
 
         <form method="post" id="post_form">
@@ -29,7 +51,7 @@ echo view('layout/flashdata');
                 <label class="label">Tytuł posta</label>
                 <div class="control has-icons-left has-icons-right">
                     <input class="input is-danger" type="text" name="title" placeholder="Wpisz tutaj tytuł posta"
-                           value="<?=old('title')?>">
+                           value="<?=$title?>">
                     <span class="icon is-small is-left"><i class="fas fa-file-lines"></i>
                     </span>
                     <span class="icon is-small is-right">
@@ -43,7 +65,7 @@ echo view('layout/flashdata');
                 <label class="label">Slug (wyświetlany w tytule strony) max. 50 znaków</label>
                 <div class="control has-icons-left has-icons-right">
                     <input class="input is-danger" type="text" name="slug" maxlength="50" placeholder="Wpisz tutaj slug"
-                           value="<?=old('slug')?>">
+                           value="<?=$slug?>">
                     <span class="icon is-small is-left"><i class="fas fa-file-word"></i>
                     </span>
 
@@ -54,10 +76,7 @@ echo view('layout/flashdata');
             <div class="field">
                 <label class="label">Opis</label>
                 <div class="control has-icons-left has-icons-right">
-                    <textarea
-                            class="textarea is-danger"
-                            name="description"
-                            rows="2"><?=old('description')?></textarea>
+                    <textarea class="textarea is-danger" name="description" rows="2"><?=$description?></textarea>
 
                 </div>
                 <p class="help is-danger">Popraw błędy</p>
@@ -66,7 +85,9 @@ echo view('layout/flashdata');
             <div class="field">
                 <label class="label">Treść</label>
                 <div class="control">
-                    <div id="post_content" class="post_content"></div>
+                    <div id="post_content" class="post_content">
+
+                    </div>
                 </div>
             </div>
 
@@ -74,7 +95,7 @@ echo view('layout/flashdata');
 
             <div class="field is-grouped is-grouped-right">
                 <div class="control">
-                    <button class="button is-link">Dodaj nowy post</button>
+                    <button class="button is-link">Edytuj post</button>
                 </div>
             </div>
 
@@ -103,10 +124,9 @@ echo view('layout/flashdata');
         document.getElementById("hiddenquill").value = quill.getCont();
     })
 
-    $(function(){
-        quill.setCont(`<?php echo old('content');?>`);
+   $(function(){
+        quill.setCont(`<?php echo ($content);?>`);
     });
-
 
 </script>
 

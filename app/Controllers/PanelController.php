@@ -116,13 +116,57 @@ class PanelController extends BaseController
                     'message' => 'Pomyślnie usunięto post o ID ' . $id
                 ];
             }else{
-                $this->session->setFlashdata('message',
+                $this->session->setFlashdata('error',
                     'Wystapil blad podczas usuwania posta o ID '. $id);
                 $data = [
                     'message' => 'Wystapil blad podczas usuwania posta o ID '. $id
                 ];
             }
             return $this->response->setJSON($data);
+        }
+        else if($this->request->getMethod() == "post"){
+            $edit_data = ['title', 'description', 'slug', 'content'];
+            $edited = [];
+            $db_data = $this->PostsModel->find($id);
+            foreach($edit_data as $po){
+                $$po = $this->request->getPost($po);
+
+                if($db_data->$po !=  $$po){
+                    array_push($edited, $po);
+                }
+            }
+            if(empty($edited)){
+                $this->session->setFlashdata('error',
+                    'Nie wprowadzono zmian w poście');
+                $data['title'] = 'Edycja posta';
+                $data['post'] = $this->PostsModel->find($id);
+                return view('blog/post_edit', $data);
+            }
+            $q = $this->PostsModel->where('id', $id);
+            foreach($edited as $ed){
+                $q->set($ed, $$ed);
+            }
+            $q->set('updated_at', date("Y-m-d H:i:s"));
+            $q->update();
+            if($q){
+                $this->session->setFlashdata('message',
+                    'Pomyślnie edytowano post o ID ' . $id);
+            }else{
+                $this->session->setFlashdata('error',
+                    'Wystąpił błąd podczas usuwania postu o ID ' . $id);
+
+            }
+            $data['title'] = 'Edycja posta';
+            $data['post'] = $this->PostsModel->find($id);
+            return view('blog/post_edit', $data);
+
+
+
+        }
+        else if($this->request->getMethod() == "get"){
+            $data['title'] = 'Edycja posta';
+            $data['post'] = $this->PostsModel->find($id);
+            return view('blog/post_edit', $data);
         }
 
 

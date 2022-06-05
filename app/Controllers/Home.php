@@ -24,11 +24,10 @@ class Home extends BaseController
 
     public function post($id)
     {
-
         $data['post'] = $this->PostsModel->where('id', $id)->get()->getResult();
-
         $data['title'] = "Blog ./MoZZar - " . $data['post'][0]->slug;
         return view('posts/post_view', $data);
-
     }
+
+
 }
