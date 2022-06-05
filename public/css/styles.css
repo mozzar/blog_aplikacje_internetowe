@@ -1,0 +1,15 @@
+
+.column-border{
+    border-right: 1px solid #999999;
+    border-left: 1px solid #999999;
+}
+
+.column{
+    padding: 1rem;
+}
+
+.breadcrumb{
+    margin-top:auto;
+    margin-bottom: auto;
+}
+

@@ -1,0 +1,61 @@
+body{
+    background-color: #E06E3F;
+}
+.fixed-top-second{
+    top:40px;
+    z-index: 1030;
+    right: 0;
+    left: 0;
+    position: fixed;
+}
+.fixed-top-third{
+    min-height: 50px;
+    max-height: 50px;
+}
+.list-lang > li.lang{
+    border: none;
+    background-color: transparent;
+    padding:0;
+    margin-left:5px;
+}
+.list-lang > li.social{
+    border: none;
+    background-color: transparent;
+    padding:0;
+    margin-left:5px;
+}
+
+
+.list-lang > li.lang:not(:last-child):after{
+    content: "|";
+    margin-left:5px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+.list-social > li{
+    border: none;
+    background-color: transparent;
+    padding:0;
+    margin-left:5px;
+    margin-right: 0;
+}
+.navbar-custom{
+    background-color: #fff;
+}
+
+.random-image{
+    background: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fconstruction-work&psig=AOvVaw3ISr7YoOTn4ACVGHOPWA_O&ust=1654203563512000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJCtsdGSjfgCFQAAAAAdAAAAABAD");
+    min-height: auto;
+}
+
+#section1{
+    margin-top:150px;
+}
+.no-margin{
+    margin-left:0;
+    margin-right: 0;
+}
+
+
