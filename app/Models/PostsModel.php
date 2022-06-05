@@ -12,9 +12,17 @@ class PostsModel extends Model{
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
     protected $allowedFields =
-        ['title', 'description', 'content', 'deleted_at', 'created_at', 'user_id', 'slug', 'image_name'];
+        ['title', 'description', 'content', 'deleted_at', 'edited_at', 'created_at', 'user_id', 'slug', 'image_name'];
 
 
+
+    public function getPostCategories(int $id){
+        return $this->db->table('category_posts')
+            ->select('*')
+            ->where('category_posts.post_id', $id)
+            ->join('category', 'category_posts.category_id=category.id')
+            ->get()->getResult();
+    }
 
 
 }

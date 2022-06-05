@@ -6,6 +6,8 @@ use App\Helpers\SeperateThreePosts;
 echo view('layout/header');
 echo view('layout/navbar');
 echo view('layout/flashdata');
+
+
 ?>
 
 <div class="columns">
@@ -36,12 +38,12 @@ if($posts_count > 3){
                             </a>
                         </p>
                         <p>
-                            <span class="tag is-info">Motoryzacja</span>
+                            <span class="tag <?=$post[0]->color?>"> <?=$post[0]->category_name?></span>
                         </p>
                         <p>
                             <?=$post[0]->description?>
                         </p>
-                        <p class="is-size-7">Dodano: <?= $post[2]->created_at;?></p>
+                        <p class="is-size-7">Dodano: <?= $post[0]->created_at;?></p>
                     </div>
 
                     <div class="tile is-child box">
@@ -51,12 +53,12 @@ if($posts_count > 3){
                             </a>
                         </p>
                         <p>
-                            <span class="tag is-danger">Programowanie</span>
+                            <span class="tag <?=$post[1]->color?>"> <?=$post[1]->category_name?></span>
                         </p>
                         <p>
                             <?=$post[1]->description?>
                         </p>
-                        <p class="is-size-7">Dodano: <?= $post[2]->created_at;?></p>
+                        <p class="is-size-7">Dodano: <?= $post[1]->created_at;?></p>
                     </div>
 
                 </div>
@@ -70,8 +72,7 @@ if($posts_count > 3){
                             </a>
                         </p>
                         <p>
-                            <span class="tag is-primary">Świat</span>
-                            <span class="tag is-success">Humor</span>
+                            <span class="tag <?=$post[2]->color?>"> <?=$post[2]->category_name?></span>
                         </p>
                         <p>
                             <?=$post[2]->description?>
@@ -100,7 +101,7 @@ if($posts_count > 3){
                             </a>
                         </p>
                         <p>
-                            <span class="tag is-link">Biologia</span>
+                            <span class="tag <?=$post[0]->color?>"> <?=$post[0]->category_name?></span>
                         </p>
                         <p>
                             <?=$post[0]->description?>
@@ -108,7 +109,7 @@ if($posts_count > 3){
                         <figure class="image is-4by3">
                             <img src="https://bulma.io/images/placeholders/640x480.png">
                         </figure>
-                        <p class="is-size-7">Dodano: <?= $post[2]->created_at;?></p>
+                        <p class="is-size-7">Dodano: <?= $post[0]->created_at;?></p>
 
                     </div>
                 </div>
@@ -122,13 +123,13 @@ if($posts_count > 3){
                             </a>
                         </p>
                         <p>
-                            <span class="tag is-light">Fizyka</span>
+                            <span class="tag <?=$post[1]->color?>"> <?=$post[1]->category_name?></span>
                         </p>
 
                         <p>
                             <?=$post[1]->description?>
                         </p>
-                        <p class="is-size-7">Dodano: <?= $post[2]->created_at;?></p>
+                        <p class="is-size-7">Dodano: <?= $post[1]->created_at;?></p>
                     </div>
 
                     <div class="tile is-child box">
@@ -138,7 +139,7 @@ if($posts_count > 3){
                             </a>
                         </p>
                         <p>
-                            <span class="tag is-warning">Chemia</span>
+                            <span class="tag <?=$post[2]->color?>"> <?=$post[2]->category_name?></span>
                         </p>
                         <p>
                             <?=$post[2]->description?>
