@@ -2,12 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\CategoryModel;
 use App\Models\PostsModel;
 
 class Home extends BaseController
 {
     public function __construct(){
         $this->PostsModel = new PostsModel();
+        $this->CategoryModel = new CategoryModel();
     }
 
     public function index()
@@ -34,6 +36,17 @@ class Home extends BaseController
             ->get()->getResult();
         $data['title'] = "Blog ./MoZZar - " . $data['post'][0]->slug;
         return view('posts/post_view', $data);
+    }
+
+
+    public function categories(){
+        $data['title'] = 'Blog ./MoZZar - Kategorie postów';
+        $data['categories'] = $this->CategoryModel->findAll();
+        $count_cat = count($data['categories']);
+
+
+
+        return view('posts/category_view', $data);
     }
 
 

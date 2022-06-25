@@ -24,5 +24,13 @@ class PostsModel extends Model{
             ->get()->getResult();
     }
 
+    public function getPostsByCategory(int $id){
+        return $this->db->table('category_posts')
+            ->select('*')
+            ->where('category_posts.category_id', $id)
+            ->join('posts', 'category_posts.post_id = posts.id')
+            ->get()->getResult();
+    }
+
 
 }
