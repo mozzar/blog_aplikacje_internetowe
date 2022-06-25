@@ -17,7 +17,7 @@
                 Posty
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href='/categories'>
                 Kategorie
             </a>
 
