@@ -59,6 +59,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
 
 $routes->get('/', 'Home::index');
 $routes->get('post/(:num)', 'Home::post/$1');
+$routes->get('posts', 'Home::all_posts');
 $routes->get('categories', 'Home::categories');
 
 

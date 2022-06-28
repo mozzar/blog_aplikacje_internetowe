@@ -39,6 +39,44 @@ class Home extends BaseController
     }
 
 
+    public function all_posts(){
+        $post_per_page = 5;
+        $data['title'] = "Blog ./MoZZar - Wszystkie posty";
+        $post_count = $this->PostsModel
+            ->where('deleted_at', null)->countAllResults();
+        $pages = ceil($post_count/$post_per_page);
+        if(!empty($this->request->getGet('page'))){
+            $page_requested = $this->request->getGet('page');
+
+            if($page_requested <= $pages && $page_requested > 0){
+                $data['posts'] = $this->PostsModel
+                    ->select('*, posts.id as id')
+                    ->where('deleted_at', null)
+                    ->join('users', 'user_id = users.id')
+                    ->orderBy('posts.created_at', 'DESC')
+                    ->limit($post_per_page, $post_per_page*$page_requested)
+                    ->get()->getResult();
+                $data['max_page'] = $pages;
+                $data['page'] = $page_requested;
+                return view('blog/panel', $data);
+            }else{
+                session()->setFlashdata('error', 'Taka strona nie istnieje!');
+            }
+
+        }
+
+        $data['posts'] = $this->PostsModel
+            ->select('*, posts.id as id')
+            ->where('deleted_at', null)
+            ->join('users', 'user_id = users.id')
+            ->limit($post_per_page)
+            ->orderBy('created_at', 'DESC')
+            ->get()->getResult();
+        $data['page'] = 0;
+        $data['max_page'] = $pages;
+        return view('posts/posts_view', $data);
+    }
+
     public function categories(){
         $data['title'] = 'Blog ./MoZZar - Kategorie postów';
         $data['categories'] = $this->CategoryModel->findAll();
