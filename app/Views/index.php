@@ -6,6 +6,7 @@ use App\Helpers\SeperateThreePosts;
 echo view('layout/header');
 
 
+echo view('layout/navbar');
 
 ?>
 
@@ -13,7 +14,6 @@ echo view('layout/header');
     <div class="column"></div>
     <div class="column is-two-thirds">
 <?php
-echo view('layout/navbar');
 echo view('layout/flashdata');
 $posts_count = count($posts);
 $separated_posts = SeperateThreePosts::separate($posts);

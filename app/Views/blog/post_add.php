@@ -38,7 +38,33 @@ echo view('layout/flashdata');
                 </div>
                 <p class="help is-danger">Popraw błędy</p>
             </div>
-
+            <div class="field">
+                <label class="label" for="category">Kategoria posta</label>
+                <div class="select is-link">
+                    <select id="category" name="category">
+                        <option disabled="" selected>Wybierz kategorię</option>
+                        <?php foreach($categories as $category):?>
+                        <option value="<?=esc($category['id'])?>"><?=esc($category['category_name'])?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <p class="help is-danger">Popraw błędy</p>
+            </div>
+            <?php
+            //print_r($images);
+            ?>
+            <div class="field">
+                <label class="label" for="image">Obrazek posta</label>
+                <div class="select is-link">
+                    <select id="image" name="image">
+                        <option disabled="" selected>Wybierz obrazek posta</option>
+                        <?php foreach($images as $image):?>
+                            <option value="<?=esc($image)?>"><?=esc($image)?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <p class="help is-danger">Popraw błędy</p>
+            </div>
             <div class="field">
                 <label class="label">Slug (wyświetlany w tytule strony) max. 50 znaków</label>
                 <div class="control has-icons-left has-icons-right">

@@ -3,10 +3,16 @@
 - PHP ^8.0 with extensions for codeigniter 4.2.0
 - composer
 
-## installing & migration
-- composer install, composer update
+# docker
+- `docker-compose build`
+- `docker-compose up`
+- `docker exec -it blog-app php spark migrate:refresh`
+
+
+## commands installing & migration
+- `composer install`, `composer update`
 - fill .env database
-- php spark migrate:refresh
-- php spark serve - to run webserver on default localhost:8080
+- `php spark migrate:refresh`
+- `php spark serve` - to run webserver on default localhost:8080
 
 

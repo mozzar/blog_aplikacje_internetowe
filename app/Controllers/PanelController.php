@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CategoryModel;
 use App\Models\PostsModel;
 use App\Models\UsersModel;
 use Config\Services;
@@ -21,9 +22,11 @@ class PanelController extends BaseController
 
     public function __construct()
     {
+        helper('filesystem');
         $this->session = session();
         $this->PostsModel = new PostsModel();
         $this->UsersModel = new UsersModel();
+        $this->CategoryModel = new CategoryModel();
     }
 
 
@@ -71,7 +74,8 @@ class PanelController extends BaseController
     {
         $data['title'] = 'Dodawanie nowego posta';
         if($this->request->getMethod() == 'get'){
-
+            $data['images'] = directory_map('./img');
+            $data['categories'] = $this->CategoryModel->findAll();
             return view('blog/post_add', $data);
         }
         else if($this->request->getMethod() == "post"){
@@ -79,6 +83,8 @@ class PanelController extends BaseController
             $description = $this->request->getPost('description');
             $content = $this->request->getPost('content');
             $slug = $this->request->getPost('slug');
+            $image = $this->request->getPost('image');
+            $category = $this->request->getPost('category');
             $user_id = session()->get('user_id');
             $created_at = date("Y-m-d H:i:s");
             $data = [
@@ -86,10 +92,13 @@ class PanelController extends BaseController
                 'description' => $description,
                 'slug' => $slug,
                 'content' => $content,
+                'image_name' => $image,
                 'user_id' => $user_id,
                 'created_at' => $created_at
             ];
             $add = $this->PostsModel->insert($data);
+            $inserted_post = $this->PostsModel->getInsertID();
+            $this->CategoryModel->addToCategoryRelation($category, $inserted_post);
             if($add){
                 $this->session->setFlashdata('message',
                     'Pomyślnie dodano nowy post!');

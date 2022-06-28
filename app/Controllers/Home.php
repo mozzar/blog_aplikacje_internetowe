@@ -44,7 +44,14 @@ class Home extends BaseController
         $data['categories'] = $this->CategoryModel->findAll();
         $count_cat = count($data['categories']);
 
+        foreach($data['categories'] as $index => $value){
+            /*print_r($index);
+            print_r($value['id']);
+            echo "</br>";*/
 
+            $data['categories'][$index]['posts'] = $this->PostsModel->getPostsByCategory($value['id']);
+
+        }
 
         return view('posts/category_view', $data);
     }

@@ -2,7 +2,7 @@
 
 echo view('layout/header');
 echo view('layout/navbar');
-print_r($categories);
+#print_r($categories);
 ?>
 
 <br/>
@@ -11,144 +11,73 @@ print_r($categories);
     <div class="column is-two-thirds">
         <?php
         foreach($categories as $category){
-            print_r($category->post);
+
             ?>
-            <h1><?= $category->category_name?></h1>
-            <h7>
-                <?= $category->category_description?>
-            </h7>
+        <div class="columns is-vcentered">
+            <div class="column is-12">
+                <div class="is-vcentered">
+                    <div class="mt-6">
+
+                        <span class="tag <?=$category['color']?> is-large"><?=$category['category_name']?></span>
+                        <div class="is-size-6">
+                            <?= $category['category_description']?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             <div class="columns">
-                <div class="column is-3">
+                <?php
+                if(count($category['posts'])>0){
+                    foreach($category['posts'] as $post){
+                    //print_r($post->);
+                    ?>
+                    <div class="column is-3">
 
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
+                        <div class="card" style="height: 100%;">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <!--https://bulma.io/images/placeholders/1280x960.png-->
+                                    <img src="<?=base_url()?>/img/<?=$post->image_name?>" alt="<?=base_url()?>">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="media">
+
+                                    <div class="media-content">
+                                        <p class="title is-6"><?=$post->title?></p>
+                                        <p class="subtitle is-7">Autor: <?=$post->author?></p>
+                                        <p class="subtitle is-7">Dodano: <?=$post->created_at?></p>
+                                    </div>
                                 </div>
-                                <div class="media-content">
-                                    <p class="title is-4">John Smith</p>
-                                    <p class="subtitle is-6">@johnsmith</p>
+
+                                <div class="content">
+                                    <?= substr($post->description, 0,100)?>
+                                    <a href="<?=base_url()?>/post/<?=$post->post_id?>">Czytaj dalej</a>
                                 </div>
                             </div>
-
-                            <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
-                                <br>
-                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            </div>
                         </div>
+
                     </div>
 
-                </div>
 
-                <div class="column is-3">
-
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">John Smith</p>
-                                    <p class="subtitle is-6">@johnsmith</p>
-                                </div>
-                            </div>
-
-                            <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
-                                <br>
-                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            </div>
-                        </div>
+                    <?php
+                    }
+                }else{
+                    ?>
+                <div class="column is-12">
+                    <div class="notification is-info is-light">
+                        Ta kategoria nie zawiera obecnie postów :(
                     </div>
-
                 </div>
 
-                <div class="column is-3">
+                    <?php
+                }
+                ?>
 
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">John Smith</p>
-                                    <p class="subtitle is-6">@johnsmith</p>
-                                </div>
-                            </div>
 
-                            <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
-                                <br>
-                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
 
-                <div class="column is-3">
-
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">John Smith</p>
-                                    <p class="subtitle is-6">@johnsmith</p>
-                                </div>
-                            </div>
-
-                            <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
-                                <br>
-                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
 
             </div>
 
