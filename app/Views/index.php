@@ -76,7 +76,8 @@ if($posts_count > 3){
                             <?=$post[2]->description?>
                         </p>
                         <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/640x480.png">
+                            <!--https://bulma.io/images/placeholders/640x480.png-->
+                            <img src="<?=base_url()?>/img/<?= $post[2]->image_name;?>">
                         </figure>
                         <p class="is-size-7">Dodano: <?= $post[2]->created_at;?></p>
                     </div>
@@ -105,7 +106,8 @@ if($posts_count > 3){
                             <?=$post[0]->description?>
                         </p>
                         <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/640x480.png">
+                            <!--https://bulma.io/images/placeholders/640x480.png-->
+                            <img src="<?=base_url()?>/img/<?= $post[0]->image_name;?>">
                         </figure>
                         <p class="is-size-7">Dodano: <?= $post[0]->created_at;?></p>
 
