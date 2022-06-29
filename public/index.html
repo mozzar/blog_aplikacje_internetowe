@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link rel="stylesheet" href="css/bulma/css/bulma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+
+        .navbar.has-logo-above {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bg-img{
+            background-image: url(img/laka.jpg) ;
+            background-position: center center;
+            background-repeat:  no-repeat;
+            background-attachment: fixed;
+            background-size:  cover;
+            background-color: #999;
+            display: block;
+            max-width: 100%;
+            height: auto;
+            filter: blur(0.5px);
+            -webkit-filter: blur(0.5px);
+            -moz-filter: blur(0.5px);
+            clip-path: polygon(94% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 18%);
+
+        }
+        .is-fullheight{
+            min-height: 500px;
+        }
+        .blur{
+            filter: blur(0.2px);
+            -webkit-filter: blur(0.2px);
+            -moz-filter: blur(0.2px);
+        }
+        .is-size-10{
+            font-size: 13px;
+        }
+        ul > li{
+            border-bottom: 1px solid white;
+            width:150px;
+            margin-top:5px;
+            padding-bottom: 5px;
+        }
+        ul > li:last-child{
+            border-bottom: none;
+        }
+        .text-13px{
+            font-size: 13px;
+        }
+        .text-abc{
+            column-count: 1;
+            -webkit-column-count: 1;
+            -moz-column-count: 1;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="columns">
+
+    <div class="column is-3"></div>
+    <div class="column is-6">
+        <section class="header">
+        <nav class="navbar is-light is-transparent has-background-white has-logo-above" role="navigation" aria-label="main navigation">
+            <div class="">
+                <div class="navbar-brand">
+
+                    <a class="navbar-item" href="#">
+                        <img src="img/5509-golf3-1.webp" style="min-height: 200px; min-width: 150px;">
+                    </a>
+
+                </div>
+                <div class="navbar-menu" style=" justify-content: center; align-items: center;">
+                    <a class="navbar-item has-text-grey" >
+                        PL/EN
+                    </a>
+                    <a class="navbar-item has-text-grey">
+                        Mapa Serwisu
+                    </a>
+                    <a class="navbar-item has-text-grey" >
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                    </a>
+                </div>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                    <a class="navbar-item"> AKTUALNOŚCI </a>
+                    <a class="navbar-item"> TURNIEJE </a>
+                    <a class="navbar-item"> POLE </a>
+                    <a class="navbar-item"> NOCLEGI </a>
+                    <a class="navbar-item"> AKADEMIA </a>
+                    <a class="navbar-item"> ABC GOLFA </a>
+
+                <a class="navbar-item"> KONTAKT </a>
+
+
+
+            </div>
+        </nav>
+        </section>
+        <section class="content">
+
+        </section>
+    </div>
+
+    <div class="column is-3"></div>
+
+</div>
+
+<!--POGODA-->
+
+<div class="columns">
+    <div class="column is-12 bg-img is-fullheight">
+        <div class="columns">
+            <div class="column is-3"></div>
+
+            <div class="column is-6 blur">
+                <div class="columns" style="margin-top:20px;">
+                    <div class="column has-text-white has-text-weight-bold is-size-10" style="z-index: 600;">
+                        <ul style="margin-top:120px; margin-bottom: auto; ">
+                            <li>POLECANE KSIĄŻKI</li>
+                            <li>
+                        SYMULATOR</li>
+                            <li>
+                        ETYKIETA GOLFA</li>
+                            <li>
+                        ZASADY GRY</li>
+                            <li>
+                        POJĘCIA GOLFOWE</li>
+                            <li>
+                        HISTORIA GOLFA</li>
+                            <li>
+                        NOCLEGI</li>
+                            <li>
+                        POLECANE FILMY</li>
+                            <li>
+                        POLECANE KSIĄŻKI</li>
+
+                        </ul>
+
+
+
+                    </div>
+                    <div class="column">
+                        <div class="box is-pulled-right has-background-info has-text-white" style="z-index: 600;clip-path: polygon(0 7%, 100% 31%, 100% 50%, 100% 100%, 0 100%); width:300px;">
+                            <br/>
+                            POGODA
+                            <hr/>
+                            <p style="font-size: 13px;">DZISIAJ
+                            </p>
+
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="column is-3"></div>
+        </div>
+
+    </div>
+</div>
+
+<!--AKTUALNOŚCI-->
+
+<div class="columns" style="margin-top:20px;">
+    <div class="column is-12 clip">
+        <div class="columns">
+            <div class="column is-3"></div>
+
+            <div class="column is-6">
+                <p class="is-size-3 has-text-centered">AKTUALNOŚCI</p>
+                <table class="table" style="margin-top:20px;">
+
+                    <tbody style="">
+                    <tr style="border-bottom: 2px solid grey;margin-top: 50px;">
+                        <th style="min-width: 200px; width: 200px; margin-right: 100px;">
+                            <p>2022-01-01</p>
+                            <p style="font-size: 15px;">Dzisiaj pole zamknięte</p>
+                        </th>
+                        <td class="text-13px has-text-grey">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid grey;">
+                        <th style="min-width: 200px; width: 200px; margin-right: 100px;">
+                            <p>2022-01-01</p>
+                            <p>Dzisiaj pole zamknięte</p>
+                        </th>
+                        <td class="text-13px has-text-grey">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid grey;">
+                        <th style="min-width: 200px; width: 200px; margin-right: 100px;">
+                            <p>2022-01-01</p>
+                            <p>Dzisiaj pole zamknięte</p>
+                        </th>
+                        <td class="text-13px has-text-grey">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid grey;">
+                        <th style="min-width: 200px; width: 200px; margin-right: 100px;">
+                            <p>2022-01-01</p>
+                            <p>Dzisiaj pole zamknięte</p>
+                        </th>
+                        <td class="text-13px has-text-grey">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <p class="is-size-3 has-text-centered">
+                    <span class="icon">
+                        <i class="fas fa-arrow-down has-text-success"></i>
+                    </span>
+                </p>
+
+            </div>
+            <div class="column is-3"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--ABC GOLFA-->
+
+
+<div class="columns">
+    <div class="column is-12 bg-img is-fullheight">
+        <div class="columns">
+            <div class="column is-3"></div>
+
+            <div class="column is-6 blur" style="margin-top:80px; padding-bottom: 100px;">
+
+                <p class="is-size-3 has-text-centered has-text-white">ABC GOLFA</p>
+                <p class="text-abc has-text-white mt-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas interdum felis ut vulputate. Duis scelerisque turpis eget felis maximus aliquam. In tortor nisl, lobortis at enim eleifend, viverra commodo lectus. Quisque ultricies at purus vitae tempor. Maecenas hendrerit dolor vel tincidunt dictum. Integer non purus commodo, cursus nisi id, tempus lorem. Ut a tempus ante, nec pharetra augue.
+
+                    Proin at est laoreet, blandit risus vitae, posuere odio. Ut maximus elit sed purus aliquam tempor. Aliquam ac interdum ante. Ut varius sapien quis magna dapibus, vel interdum dolor hendrerit. Donec imperdiet diam erat, non mattis dolor interdum non. Nulla porta orci ut dolor bibendum mattis ut vitae nunc. Fusce lobortis elit lorem, quis facilisis ligula aliquet eu. Mauris neque lacus, feugiat eget magna nec, ultrices ullamcorper risus. Maecenas in malesuada metus. Curabitur bibendum fermentum condimentum. Sed ut leo turpis. Nunc in urna ultricies, iaculis mauris eget, dignissim sapien.
+
+                    Sed non rutrum magna. Quisque et augue sit amet nisi ultricies pretium nec sed elit. Etiam sit amet elit sed ante tempor faucibus. Nulla facilisi. Ut ullamcorper semper sem, ut venenatis urna pharetra quis. Curabitur cursus suscipit ullamcorper. Etiam quam sapien, congue id lorem a, dignissim porta lacus. Curabitur arcu diam, placerat vel massa ut, convallis sollicitudin lectus. Maecenas a tellus et lorem rhoncus viverra. Nunc luctus nisi a mauris tristique, non vestibulum massa tincidunt. Duis euismod, urna in convallis lacinia, lectus est rutrum dolor, laoreet elementum lacus nibh sed sem.
+
+                    Nunc congue ante massa, non pulvinar nulla ultricies quis. Aliquam erat volutpat. Vivamus quis sapien euismod, tincidunt ante at, dapibus nunc. Integer ac nunc id mi faucibus ultrices at eget risus. Aliquam ut sapien augue. Duis sit amet nisl euismod, eleifend neque id, blandit justo. Cras viverra molestie diam ac blandit. Fusce at placerat ipsum. Pellentesque vestibulum vulputate nunc vel feugiat. Donec orci ex, porta eu ipsum in, pulvinar rhoncus augue. Integer sed molestie orci. Morbi in lacus pretium, vehicula lectus sit amet, efficitur nisl. Aliquam sollicitudin facilisis dictum. Integer ullamcorper euismod fermentum. Fusce vitae auctor sapien, ac imperdiet massa. Sed venenatis tincidunt semper.
+                </p>
+
+
+            </div>
+            <div class="column is-3"></div>
+        </div>
+
+    </div>
+</div>
+
+<!--KONTAKT-->
+<div class="columns" style="margin-top:20px; padding-bottom: 100px;">
+    <div class="column is-12 clip">
+        <div class="columns">
+            <div class="column is-3"></div>
+
+            <div class="column is-6">
+                <p class="is-size-3 has-text-centered">KONTAKT</p>
+
+                <div class="columns" style="padding-top: 50px; padding-left: 30px; padding-right: 30px;">
+                    <div class="column">
+                        <p class="has-text-black-bis has-text-weight-bold">Adres Pola:</p>
+                        <br/>
+                        <p class="has-text-grey">Kalinowo k/Niesulic</p>
+                        <p class="has-text-grey">ul. Golfowa 1</p>
+                        <p class="has-text-grey">66-666 Skąpe</p>
+                        <p class="has-text-grey">woj. lubuskie</p>
+                        <br/>
+                        <p class="has-text-grey">marketing@kalinowepola.pl</p>
+                        <br/>
+                        <p class="has-text-grey">tel. +48 123 123 123</p>
+                        <br/>
+                        <p class="has-text-grey">GPS: 54o 12'12.44"N 12o 22'34.75"E</p>
+
+
+                    </div>
+                    <div class="column">
+                        <p class="has-text-black-bis has-text-weight-bold">Dane do faktury:</p>
+                        <br/>
+                        <p class="has-text-grey">Kalinowe Pola Sp. z o. o.</p>
+                        <p class="has-text-grey">ul. Golfowa 1, Kalinowo</p>
+                        <p class="has-text-grey">66-666 Skąpe</p>
+                        <br/>
+                        <p class="has-text-grey">NIPL 988-112-11-11</p>
+                        <p class="has-text-grey">REGON: 123212122</p>
+                        <p class="has-text-grey">KRS: 1234234422</p>
+                        <br/>
+                        <p class="has-text-grey">BZ WBK PL 23 1233 1233 0000 0000 0000 1222</p>
+
+                        <p class="has-text-grey">BZ WBK EUR 23 1233 1233 0000 0000 0000 1222</p>
+
+                    </div>
+                </div>
+                <div class="columns is-flex is-centered">
+                    <figure class="image" style="min-width: 100%;">
+                        <img src="img/pole.png" alt="pole">
+                    </figure>
+                </div>
+
+
+
+            </div>
+            <div class="column is-3"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
